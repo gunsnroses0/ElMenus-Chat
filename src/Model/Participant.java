@@ -27,6 +27,7 @@ import Commands.Command;
 public class Participant {
 	private static final String COLLECTION_NAME = "participants";
 	private static int DbPoolCount = 4;
+	static String host = System.getenv("MONGO_URI");
 	public static int getDbPoolCount() {
 		return DbPoolCount;
 	}
@@ -36,9 +37,10 @@ public class Participant {
 	private static MongoCollection<Document> collection = null;
 	
 	public static HashMap<String, Object> create(HashMap<String, Object> atrributes) {
+		MongoClientOptions.Builder options = MongoClientOptions.builder()
+	            .connectionsPerHost(DbPoolCount);
 		MongoClientURI uri = new MongoClientURI(
-				"mongodb://localhost");
-
+				host,options);
 		MongoClient mongoClient = new MongoClient(uri);
 		MongoDatabase database = mongoClient.getDatabase("El-Menus");
 //    	Method method =   Class.forName("PlatesService").getMethod("getDB", null);
@@ -58,9 +60,10 @@ public class Participant {
 	}
 	
 	public static HashMap<String, Object> update(String id, HashMap<String, Object> atrributes) {
+		MongoClientOptions.Builder options = MongoClientOptions.builder()
+	            .connectionsPerHost(DbPoolCount);
 		MongoClientURI uri = new MongoClientURI(
-				"mongodb://localhost");
-
+				host,options);
 		MongoClient mongoClient = new MongoClient(uri);
 		MongoDatabase database = mongoClient.getDatabase("El-Menus");
 //    	Method method =   Class.forName("PlatesService").getMethod("getDB", null);
@@ -82,8 +85,10 @@ public class Participant {
 	}
 	
 	public static HashMap<String, Object> get(String messageId) {
+		MongoClientOptions.Builder options = MongoClientOptions.builder()
+	            .connectionsPerHost(DbPoolCount);
 		MongoClientURI uri = new MongoClientURI(
-				"mongodb://localhost");
+				host,options);
 		MongoClient mongoClient = new MongoClient(uri);
 		MongoDatabase database = mongoClient.getDatabase("El-Menus");
 //    	Method method =   Class.forName("PlatesService").getMethod("getDB", null);
