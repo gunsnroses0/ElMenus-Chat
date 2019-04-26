@@ -40,7 +40,7 @@ public class Chat {
 		DbPoolCount = dbPoolCount;
 	}
 	
-	public static HashMap<String, Object> create(HashMap<String, Object> atrributes) {
+	public static HashMap<String, Object> create(HashMap<String, Object> atrributes) throws ParseException {
 		MongoClientURI uri = new MongoClientURI(
 				"mongodb://localhost");
 
@@ -58,7 +58,9 @@ public class Chat {
 		}
 		collection.insertOne(newChat);
 
-		return atrributes;
+		JSONParser parser = new JSONParser();
+		HashMap<String, Object> returnValue = Command.jsonToMap((JSONObject) parser.parse(newChat.toJson()));
+		return returnValue;
 
 	}
 	
