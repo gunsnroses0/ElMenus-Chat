@@ -26,7 +26,13 @@ import Commands.Command;
 
 public class Participant {
 	private static final String COLLECTION_NAME = "participants";
-
+	private static int DbPoolCount = 4;
+	public static int getDbPoolCount() {
+		return DbPoolCount;
+	}
+	public static void setDbPoolCount(int dbPoolCount) {
+		DbPoolCount = dbPoolCount;
+	}
 	private static MongoCollection<Document> collection = null;
 	
 	public static HashMap<String, Object> create(HashMap<String, Object> atrributes) {

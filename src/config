@@ -1,0 +1,10 @@
+POST,/chat,CreateMessage
+GET/chat/id,FetchMessages
+POST,/chat/addCommand/,AddCommand
+POST,/chat/updateCommand/,UpdateCommand
+POST,/chat/deleteCommand/,DeleteCommand
+POST,/chat/updateThreadPoolCount/,UpdateThreadPoolCount
+POST,/chat/updateDBPoolCount/,UpdateDBPoolCount
+GET,/chat/freeze/,FreezeQueue
+GET,/chat/resume/,ResumeQueue
+POST,/chat,Test
