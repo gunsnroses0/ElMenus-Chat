@@ -1,5 +1,5 @@
 POST,/chat/,CreateMessage
-GET/chat/id,FetchMessages
+GET,/chat/id,FetchMessages
 POST,/chat/addCommand/,AddCommand
 POST,/chat/updateCommand/,UpdateCommand
 POST,/chat/deleteCommand/,DeleteCommand
