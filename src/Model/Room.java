@@ -19,6 +19,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.MongoClientOptions;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
 
