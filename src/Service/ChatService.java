@@ -45,6 +45,7 @@ public class ChatService {
 	public static  MongoDatabase database;
 	public static void main(String[] argv) {
 		run();
+		ServiceController.run();
 	}
 
 	public static void run() {
