@@ -145,7 +145,7 @@ public class Chat {
 		query.put("targetID", roomId);
 		System.out.println(query.toString());
 		HashMap<String, Object> message = null;
-		JSONArray chats = new JSONArray();
+		final JSONArray chats = new JSONArray();
 		FindIterable<Document> result = collection.find(query);
 		
 		result.forEach(new Block<Document>() {
